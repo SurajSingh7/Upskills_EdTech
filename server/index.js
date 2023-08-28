@@ -53,6 +53,7 @@ app.get("/", (req, res) => {
 		success:true,
 		message:'Your server is up and running....'
 	});
+	// res.send("hello ji");
 });
 
 app.listen(PORT, () => {
