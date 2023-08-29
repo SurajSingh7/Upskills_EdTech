@@ -8,21 +8,20 @@ body {
 }
 
 
+ /* ===== Scrollbar CSS ===== */
 
-/* ===== Scrollbar CSS =====
-
-
-
-
-
-
-
-
-
-
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid #f1f2ff;
+  animation: spinner-bulqg1 0.8s infinite linear alternate,
+    spinner-oaa3wk 1.6s infinite linear;
+}
 
 
 /* CodeBlocks */
+
 .codeblock1 {
   width: 372.95px;
   height: 257.05px;
@@ -59,5 +58,12 @@ body {
 
 .homepage_bg {
   background: url("../src/assets/Images/bghome.svg");
-  /* background-size: contain; */
 }
+
+.form-style {
+  @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+} 
+
+
+
+
