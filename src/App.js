@@ -15,9 +15,9 @@ import VerifyEmail from "./pages/VerifyEmail";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
-// import MyProfile from "./components/core/Dashboard/MyProfile";
-// import Dashboard from "./pages/Dashboard";
-// import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import MyProfile from "./components/core/Dashboard/MyProfile";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/core/Auth/PrivateRoute.jsx";
 
 import Error from "./pages/Error"
 // import Settings from "./components/core/Dashboard/Settings";
@@ -30,7 +30,7 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
 
   
-  // const { user } = useSelector((state) => state.profile)
+  const { user } = useSelector((state) => state.profile)
 
 
   return (
@@ -83,6 +83,30 @@ function App() {
             </OpenRoute>
           }
         />
+
+
+     <Route 
+      element={
+        <PrivateRoute>
+          <Dashboard />
+        </PrivateRoute>
+      }
+    >
+      <Route path="dashboard/my-profile" element={<MyProfile />} />
+    
+    </Route>
+
+    
+
+
+  
+
+        
+        
+        
+
+
+
 
       <Route path="*" element={<Error />} />
 
