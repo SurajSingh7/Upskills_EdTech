@@ -94,6 +94,7 @@ export default function MyProfile() {
       {/* 4.div-3 -> Personals details */}
       <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
         
+        {/* pers..deta & edit */}
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">
             Personal Details
@@ -107,9 +108,11 @@ export default function MyProfile() {
             <RiEditBoxLine />
           </IconBtn>
         </div>
-
+  
+        
         <div className="flex max-w-[500px] justify-between">
           
+          {/* name,email,gender */}
           <div className="flex flex-col gap-y-5">
             <div>
               <p className="mb-2 text-sm text-richblack-600">First Name</p>
@@ -133,6 +136,8 @@ export default function MyProfile() {
             </div>
           </div>
 
+
+           {/* last name,phone.no,Dob */}
           <div className="flex flex-col gap-y-5">
             <div>
               <p className="mb-2 text-sm text-richblack-600">Last Name</p>

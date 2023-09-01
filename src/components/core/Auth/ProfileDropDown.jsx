@@ -43,7 +43,7 @@ export default function ProfileDropdown() {
         
       <div ref={proRef} onClick={() => setOpen(!open)} className="flex items-center gap-x-1 text-sm text-richblack-100 font-bold ">
 
-        {`Hi ${userName}!`}
+        {`Hi ${userName}! `}
 
         <img
           src={user?.image}

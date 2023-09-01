@@ -23,7 +23,10 @@ import Error from "./pages/Error"
 // import Settings from "./components/core/Dashboard/Settings";
 import { useDispatch, useSelector } from "react-redux";
 
-// 2.
+import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
+// import Cart from "./components/core/Dashboard/Cart";
+import { ACCOUNT_TYPE } from "./utils/constants";
+
 
 
 
@@ -93,6 +96,16 @@ function App() {
       }
     >
       <Route path="dashboard/my-profile" element={<MyProfile />} />
+
+
+      {
+        user?.accountType === ACCOUNT_TYPE.STUDENT && (
+          <>
+          {/* <Route path="dashboard/cart" element={<Cart />} /> */}
+          <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
+          </>
+        )
+      }
     
     </Route>
 
