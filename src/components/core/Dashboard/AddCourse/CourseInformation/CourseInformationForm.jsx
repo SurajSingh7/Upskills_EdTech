@@ -9,7 +9,7 @@ import { addCourseDetails,editCourseDetails, fetchCourseCategories} from "../../
 import { setCourse, setStep } from "../../../../../slices/courseSlice"
 import { COURSE_STATUS } from "../../../../../utils/constants"
 import IconBtn from "../../../../common/IconBtn"
-// import Upload from "../Upload"
+import Upload from "../Upload"
 import ChipInput from "./ChipInput"
 import RequirementsField from "./RequirementField"
 
@@ -264,14 +264,14 @@ export default function CourseInformationForm() {
       />
 
       {/* Course Thumbnail Image */}
-      {/* <Upload
+      <Upload
         name="courseImage"
         label="Course Thumbnail"
         register={register}
         setValue={setValue}
         errors={errors}
         editData={editCourse ? course?.thumbnail : null}
-      /> */}
+      />
 
       {/* Benefits of the course */}
       <div className="flex flex-col space-y-2">
