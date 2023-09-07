@@ -85,17 +85,7 @@ export default function PublishCourse() {
         </div>
 
         {/* Next Prev Button */}
-        <div className="ml-auto flex max-w-max items-center gap-x-4">
-          <button
-            disabled={loading}
-            type="button"
-            onClick={goBack}
-            className="flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900"
-          >
-            Back
-          </button>
-          <IconBtn disabled={loading} text="Save Changes" />
-        </div>
+     
       </form>
     </div>
   )
