@@ -35,8 +35,7 @@ export default function PublishCourse() {
   const handleCoursePublish = async () => {
     // check if form has been updated or not
     if (
-      (course?.status === COURSE_STATUS.PUBLISHED &&
-        getValues("public") === true) ||
+      (course?.status === COURSE_STATUS.PUBLISHED && getValues("public") === true) ||
       (course?.status === COURSE_STATUS.DRAFT && getValues("public") === false)
     ) {
       // form has not been updated
@@ -44,11 +43,10 @@ export default function PublishCourse() {
       goToCourses()
       return
     }
+
     const formData = new FormData()
     formData.append("courseId", course._id)
-    const courseStatus = getValues("public")
-      ? COURSE_STATUS.PUBLISHED
-      : COURSE_STATUS.DRAFT
+    const courseStatus = getValues("public") ? COURSE_STATUS.PUBLISHED: COURSE_STATUS.DRAFT;
     formData.append("status", courseStatus)
     setLoading(true)
     const result = await editCourseDetails(formData, token)
@@ -68,6 +66,7 @@ export default function PublishCourse() {
       <p className="text-2xl font-semibold text-richblack-5">
         Publish Settings
       </p>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Checkbox */}
         <div className="my-6 mb-8">
@@ -84,7 +83,7 @@ export default function PublishCourse() {
           </label>
         </div>
 
-        {/* Next Prev Button */}
+        {/* Next & Back Button */}
         <div className="ml-auto flex max-w-max items-center gap-x-4">
           <button
             disabled={loading}
@@ -94,9 +93,12 @@ export default function PublishCourse() {
           >
             Back
           </button>
+
           <IconBtn disabled={loading} text="Save Changes" />
         </div>
+
       </form>
+
     </div>
   )
 }
