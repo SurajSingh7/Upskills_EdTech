@@ -37,7 +37,7 @@ function Navbar() {
     })()
   }, [])
 
-  // console.log("sub links", subLinks)
+  // console.log("sub links suraj", subLinks)
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname)
@@ -76,7 +76,9 @@ function Navbar() {
                           <p className="text-center">Loading...</p>
                         ) : (subLinks && subLinks.length) ? (
                           <>
-                            {subLinks
+                            {
+
+                            subLinks
                               ?.filter(
                                 (subLink) => subLink?.courses?.length > 0
                               )
@@ -90,8 +92,10 @@ function Navbar() {
                                   key={i}
                                 >
                                   <p>{subLink.name}</p>
+                                  {console.log(subLink.name)}
                                 </Link>
                               ))}
+
                           </>
                         ) : (
                           <p className="text-center">No Courses Found</p>
