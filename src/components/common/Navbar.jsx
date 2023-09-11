@@ -45,9 +45,10 @@ function Navbar() {
 
   return (
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
-        location.pathname !== "/" ? "bg-richblack-800" : ""
-      } transition-all duration-200`}
+      className={`flex py-4 items-center justify-center border-b-[1px] border-b-richblack-700 
+      ${location.pathname !== "/" ? "bg-richblack-800" : ""} 
+      ${location.pathname !== "/" ? " shadow-[10px_-5px_25px_-5px] shadow-richblack-25 " : ""}
+        transition-all duration-200 shadow-[10px_-5px_25px_-5px] shadow-blue-200 ` }
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
@@ -59,7 +60,7 @@ function Navbar() {
           <ul className="flex gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
-                {link.title === "Catalog" ? (
+                {link.title === "Courses" ? (
                   <>
                     <div
                       className={`group relative flex cursor-pointer items-center gap-1 ${

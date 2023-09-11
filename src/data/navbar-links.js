@@ -4,7 +4,9 @@ export const NavbarLinks = [
     path: "/",
   },
   {
-    title: "Catalog",
+    // title: "Catalog",
+    // Catalog -> Courses(3 change(NavbarLink,Navbar page & catalog page))    
+    title: "Courses",
     // path: '/catalog',
   },
   {

@@ -211,6 +211,7 @@ function SignupForm() {
         >
           Create Account
         </button>
+        <div className="h-8"></div>
       </form>
     </div>
   )
