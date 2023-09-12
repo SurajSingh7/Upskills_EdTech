@@ -44,11 +44,12 @@ function Navbar() {
   }
 
   return (
+    
     <div
-      className={`flex py-4 items-center justify-center border-b-[1px] border-b-richblack-700 
+      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 
       ${location.pathname !== "/" ? "bg-richblack-800" : ""} 
-      ${location.pathname !== "/" ? " shadow-[10px_-5px_25px_-5px] shadow-richblack-25 " : ""}
-        transition-all duration-200 shadow-[10px_-5px_25px_-5px] shadow-blue-200 ` }
+      ${location.pathname !== "/" ? " shadow-[10px_-5px_35px_-5px] shadow-richblack-25 " : ""}
+        transition-all duration-200 shadow-[10px_-5px_35px_-5px] shadow-blue-200 ` }
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}

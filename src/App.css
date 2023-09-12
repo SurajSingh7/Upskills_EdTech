@@ -10,10 +10,10 @@ body {
 
  /* ===== Scrollbar CSS ===== */
 
- * {
+ /* * {
   scrollbar-width: auto;
   scrollbar-color: #afb2bf;
-}
+} */
 
 /* Chrome, Edge, and Safari */
 /* *::-webkit-scrollbar {
@@ -32,6 +32,9 @@ body {
 *:hover::-webkit-scrollbar-thumb {
   background-color: #afb2bf;
 } */
+
+
+
 
 
 
@@ -221,10 +224,7 @@ details > summary::-webkit-details-marker {
   color: #838894;
 }
 
-/* Buttons */
-.yellowButton {
-  @apply cursor-pointer rounded-md bg-yellow-50 px-[20px] py-[8px] font-semibold text-richblack-900;
-}
+
 
 /* Swiper CSS Starts */
 
@@ -245,9 +245,14 @@ details > summary::-webkit-details-marker {
 
 /* Swiper CSS Ends */
 
+/* Buttons  Course->CourseDetailsCard*/
+.yellowButton {
+  @apply cursor-pointer rounded-md bg-yellow-50 px-[20px] py-[8px] font-semibold text-richblack-900;
+ }
 .blackButton {
   @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
 }
+
 .lable-style {
   @apply text-[14px] text-richblack-5;
 }
