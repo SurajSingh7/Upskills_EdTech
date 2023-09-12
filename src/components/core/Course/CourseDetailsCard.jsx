@@ -48,7 +48,7 @@ function CourseDetailsCard({ course, handleBuyCourse ,handleAddToCart}) {
                 : "Buy Now"}
             </button>
 
-            {(!user || !course?.studentsEnrolled.includes(user?._id)) && (
+            {(!course?.studentsEnrolled.includes(user?._id)) && (
               <button onClick={handleAddToCart} className="blackButton">
                 Add to Cart
               </button>

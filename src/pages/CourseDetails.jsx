@@ -71,7 +71,7 @@ function CourseDetails() {
 
 
     // const [collapse, setCollapse] = useState("")
-    const [isActive, setIsActive] = useState(Array(0))
+    const [isActive, setIsActive] = useState([])
     const handleActive = (id) => {
       // console.log("called", id)
       setIsActive(
@@ -229,6 +229,7 @@ function CourseDetails() {
 
           {/* Course Content Section */}
           <div className="max-w-[830px] ">
+
             <div className="flex flex-col gap-3">
               <p className="text-[28px] font-semibold">Course Content</p>
               <div className="flex flex-wrap justify-between gap-2">
@@ -283,6 +284,7 @@ function CourseDetails() {
                 {instructor?.additionalDetails?.about}
               </p>
             </div>
+            
           </div>
 
         </div>
