@@ -31,6 +31,8 @@ import MyCourses from "./components/core/Dashboard/MyCourses";
 import EditCourse from "./components/core/Dashboard/EditCourse";
 import Catalog from "./pages/Catalog";
 import CourseDetails from "./pages/CourseDetails";
+import ViewCourse from "./pages/ViewCourse";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 
 
 
@@ -95,24 +97,17 @@ function App() {
         />
 
 
-     <Route 
-      element={
-        <PrivateRoute>
-          <Dashboard />
-        </PrivateRoute>
-      }
-    >
-      <Route path="dashboard/my-profile" element={<MyProfile />} />
+     <Route  element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }>
 
-
-      {
-        user?.accountType === ACCOUNT_TYPE.STUDENT && (
-          <>
-          <Route path="dashboard/cart" element={<Cart />} />
-          <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
+        <Route path="dashboard/my-profile" element={<MyProfile />} />
+       {
+         user?.accountType === ACCOUNT_TYPE.STUDENT && (
+           <>
+           <Route path="dashboard/cart" element={<Cart />} />
+           <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
           </>
-        )
-      }
+         )
+       }
 
      {
         user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
@@ -125,6 +120,26 @@ function App() {
       }
     
     </Route>
+
+
+    
+      <Route element={ <PrivateRoute> <ViewCourse /></PrivateRoute> }>
+
+        {
+           user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+            <Route 
+              path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+              element={<VideoDetails />}
+            />
+           </>
+          )
+        }
+
+      </Route>
+
+
+    
 
     
 

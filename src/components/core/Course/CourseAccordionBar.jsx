@@ -7,10 +7,12 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
   const contentEl = useRef(null)
 
   // Accordian state
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
+
   useEffect(() => {
     setActive(isActive?.includes(course._id))
   }, [isActive])
+
   const [sectionHeight, setSectionHeight] = useState(0)
   useEffect(() => {
     setSectionHeight(active ? contentEl.current.scrollHeight : 0)
@@ -42,6 +44,7 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
           </div>
         </div>
       </div>
+
       <div
         ref={contentEl}
         className={`relative h-0 overflow-hidden bg-richblack-900 transition-[height] duration-[0.35s] ease-[ease]`}
@@ -55,6 +58,7 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
           })}
         </div>
       </div>
+
     </div>
   )
 }
