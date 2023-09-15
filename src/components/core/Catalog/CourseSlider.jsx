@@ -6,8 +6,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import './CourseSlider.css';
-import { Pagination } from 'swiper/modules';
 
+
+import { Autoplay, Pagination } from 'swiper/modules';
 
 
 const CourseSlider = ({Courses}) => {
@@ -26,11 +27,14 @@ const CourseSlider = ({Courses}) => {
 
         <Swiper
          pagination={pagination}
-         modules={[Pagination]}
-         className="mySwipper"
-         slidesPerView={1}
-        //  spaceBetween={25}
-        //  loop={true}
+         modules={[Pagination,Autoplay]}
+        //  spaceBetween={30}
+         rewind={true}
+         navigation={true}
+         autoplay={{
+           delay: 3000,
+          //  disableOnInteraction: false,
+         }}
          breakpoints={{
            1024: {
              slidesPerView: 3,
