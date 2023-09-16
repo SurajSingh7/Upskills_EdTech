@@ -1,181 +1,76 @@
 import React from "react";
-import { FooterLink2 } from "../../data/footer-links";
 import { Link } from "react-router-dom";
 
 // Images
-import Logo from "../../assets/Logo/Logo-Full-Light.png";
+import logo from "../../assets/Logo/Logo-Full-Light.png";
 
-// Icons
-import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
-
-const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
-const Resources = [
-  "Articles",
-  "Blog",
-  "Chart Sheet",
-  "Code challenges",
-  "Docs",
-  "Projects",
-  "Videos",
-  "Workspaces",
-];
-const Plans = ["Paid memberships", "For students", "Business solutions"];
-const Community = ["Forums", "Chapters", "Events"];
 
 const Footer = () => {
   return (
-    <div className="bg-richblack-800">
-      <div className="flex lg:flex-row gap-8 items-center justify-between w-11/12 max-w-maxContent text-richblack-400 leading-6 mx-auto relative py-14">
-        <div className="border-b w-[100%] flex flex-col lg:flex-row pb-5 border-richblack-700">
-          {/* Section 1 */}
-          <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
-            <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
-              <img src={Logo} alt="" className="object-contain" />
-              <h1 className="text-richblack-50 font-semibold text-[16px]">
-                Company
-              </h1>
-              <div className="flex flex-col gap-2">
-                {["About", "Careers", "Affiliates"].map((ele, i) => {
-                  return (
-                    <div
-                      key={i}
-                      className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200"
-                    >
-                      <Link to={ele.toLowerCase()}>{ele}</Link>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="flex gap-3 text-lg">
-                <FaFacebook />
-                <FaGoogle />
-                <FaTwitter />
-                <FaYoutube />
-              </div>
-              <div></div>
-            </div>
 
-            <div className="w-[48%] lg:w-[30%] mb-7 lg:pl-0">
-              <h1 className="text-richblack-50 font-semibold text-[16px]">
-                Resources
-              </h1>
+  <footer class="relative min-h-[280px] w-full overflow-hidden bg-richblack-800 text-[#e8e6e3] py-8 px-8 font-rubik">
 
-              <div className="flex flex-col gap-2 mt-2">
-                {Resources.map((ele, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200"
-                    >
-                      <Link to={ele.split(" ").join("-").toLowerCase()}>
-                        {ele}
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
+  
+   <div class="max-w-maxScreen mx-auto">
+    
+      <div class=" flex flex-col items-center md:items-start gap-4 md:flex-row md:justify-around md:gap-0 my-6">
 
-              <h1 className="text-richblack-50 font-semibold text-[16px] mt-7">
-                Support
-              </h1>
-              <div className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200 mt-2">
-                <Link to={"/help-center"}>Help Center</Link>
-              </div>
-            </div>
+      {/* part-1 logo */}
+      <div class="flex flex-col text-center text-base md:text-left">
 
-            <div className="w-[48%] lg:w-[30%] mb-7 lg:pl-0">
-              <h1 className="text-richblack-50 font-semibold text-[16px]">
-                Plans
-              </h1>
-
-              <div className="flex flex-col gap-2 mt-2">
-                {Plans.map((ele, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200"
-                    >
-                      <Link to={ele.split(" ").join("-").toLowerCase()}>
-                        {ele}
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-              <h1 className="text-richblack-50 font-semibold text-[16px] mt-7">
-                Community
-              </h1>
-
-              <div className="flex flex-col gap-2 mt-2">
-                {Community.map((ele, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200"
-                    >
-                      <Link to={ele.split(" ").join("-").toLowerCase()}>
-                        {ele}
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Section 2 */}
-          <div className="lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-3">
-            {FooterLink2.map((ele, i) => {
-              return (
-                <div key={i} className="w-[48%] lg:w-[30%] mb-7 lg:pl-0">
-                  <h1 className="text-richblack-50 font-semibold text-[16px]">
-                    {ele.title}
-                  </h1>
-                  <div className="flex flex-col gap-2 mt-2">
-                    {ele.links.map((link, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200"
-                        >
-                          <Link to={link.link}>{link.title}</Link>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="flex justify-center md:flex-col md:-mx-5 ">
+           <Link to="/"> <img className=" " src={logo} alt="Logo"  width={170} loading="lazy" /> </Link>
         </div>
+          <p class="mt-3 text-base max-w-[300px]">The Ultimate Guide To Ace SDE Interviews.Join us!</p>
+    
+      </div>
+   
+       {/* part-2 menu */}
+      <div class="flex flex-col text-center text-base md:text-left">
+           <p class="mb-2 md:mb-6 font-bold uppercase text-center md:text-left">menu</p>
+
+           <div class="flex flex-col gap-y-2">
+              <Link to="/about">About Us</Link>
+              <Link to="/catalog/data-structures-&-algorithms">Courses</Link>
+              <Link to="/contact">Contact</Link>
+           </div>
+   
       </div>
 
-      <div className="flex flex-row items-center justify-between w-11/12 max-w-maxContent text-richblack-400 mx-auto  pb-14 text-sm">
-        {/* Section 1 */}
-        <div className="flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full">
-          <div className="flex flex-row">
-            {BottomFooter.map((ele, i) => {
-              return (
-                <div
-                  key={i}
-                  className={` ${
-                    BottomFooter.length - 1 === i
-                      ? ""
-                      : "border-r border-richblack-700 cursor-pointer hover:text-richblack-50 transition-all duration-200"
-                  } px-3 `}
-                >
-                  <Link to={ele.split(" ").join("-").toLocaleLowerCase()}>
-                    {ele}
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
+      <div class="hidden w-[50px] bg-brColor md:block h-10"></div>
+      {/* part-3 services */}
+      <div class="flex flex-col text-center text-base md:text-left">
+   
+          <p class="mb-2 md:mb-6 font-bold uppercase text-center md:text-left">services</p>
+          <div class="flex flex-col gap-y-2">
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms-of-use">Terms of use</Link>
+          <Link to="/refund-and-cancellation-policy">Refund &amp; Cancellation Policy</Link>
+     </div>
 
-          <div className="text-center">Made with ❤️ suraj singh © 2023 Upskills</div>
-        </div>
       </div>
-    </div>
+
+      <div class="hidden h-[190px] w-[1px] bg-brColor md:block"></div>
+
+      {/* part-4 get touch */}
+      <div class="flex flex-col text-center text-base md:text-left">
+        <p class="mb-2 md:mb-6 font-bold uppercase text-center md:text-left">GET IN TOUCH</p>
+        <p>Email: <a href="mailto:220suraj@gmail.com">220suraj@gmail.com</a></p>
+      </div>
+ 
+      </div>
+      
+      {/* copyright */}
+      <div class="mt-4  text-base text-center border-t border-brColor pt-5 "> 
+         Copyright © 2023 Upskills | All Rights Reserved.
+      </div>
+   
+   </div>
+
+
+   </footer>
+    
+
   );
 };
 

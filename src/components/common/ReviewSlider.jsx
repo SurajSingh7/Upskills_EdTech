@@ -11,7 +11,8 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import ReactStars from "react-rating-stars-component"
 // Icons
-import { FaStar } from "react-icons/fa"
+import { FaStar,FaQuoteLeft,FaQuoteRight } from "react-icons/fa"
+
 
 // Get apiFunction and the endpoint
 import { apiConnector } from "../../services/apiconnector"
@@ -20,7 +21,7 @@ import { ratingsEndpoints } from "../../services/apis"
 function ReviewSlider() {
 
   const [reviews, setReviews] = useState([])
-  const LimitOfWords = 30;
+  const LimitOfWords = 27;
 
   useEffect(() => {
     (async () => {
@@ -39,34 +40,38 @@ function ReviewSlider() {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (index + 1) + '</span>';
+      return '<span class="' + className + '">' +  + '</span>';
     },
   };
 
   return (
-    <div className="text-white">
-      <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent">
+    <div className="text-white w-full shadow-[1px_-2px_20px_-2px] shadow-caribbeangreen-100 md:flex  lg:flex-col md:justify-end">
+      <div className="  my-[50px] h-[180px] max-w-maxContentTab  lg:max-w-maxContent ">
         <Swiper
+           slidesPerView={1}
            pagination={pagination}
            modules={[Pagination,Autoplay]}
            spaceBetween={15}
            rewind={true}
            autoplay={{
-             delay: 1000,
-            //  disableOnInteraction: false,
+             delay: 2500,
+             disableOnInteraction: false,
            }}
            breakpoints={{
              1024: {
                slidesPerView: 3,
              },
+             624: {
+              slidesPerView: 1,
+            },
            }}
 
         >
           {reviews.map((review, i) => {
             return (
-              <SwiperSlide key={i}>
+              <SwiperSlide key={i} > 
 
-                <div className=" w-11/12 mx-3 flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25">
+                <div className=" w-11/12   mx-3 flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25">
 
                     {/* image ,name & courseName */}
                   <div className="flex items-center gap-4">
@@ -88,15 +93,18 @@ function ReviewSlider() {
                   </div>
                     
                     {/* review */}
-                  <p className="font-medium text-richblack-25">
+                  <p className="h-[4rem] font-medium text-richblack-25">
+                
+                   {/* <FaQuoteLeft/> */}
                     {review?.review.split(" ").length > LimitOfWords
                       ? `${review?.review
                           .split(" ")
                           .slice(0, LimitOfWords)
                           .join(" ")}  ...`
                       : `${review?.review}`}
+                         {/* <FaQuoteRight/> */}
                   </p>
-                    
+                 
                     {/* Rating */}
                   <div className="flex items-center gap-2 ">
                     <h3 className="font-semibold text-yellow-100"> {review.rating.toFixed(1)}</h3>
@@ -110,9 +118,13 @@ function ReviewSlider() {
                       fullIcon={<FaStar />}
                     />
                   </div>
-
+                  
+                
+          
                 </div>
 
+                {/* <div className=""></div> */}
+  
               </SwiperSlide>
             )
           })}

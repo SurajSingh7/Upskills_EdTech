@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    
     fontFamily: {
       inter: ["Inter", "sans-serif"],
       "edu-sa": ["Edu SA Beginner", "cursive"],
@@ -130,6 +131,13 @@ module.exports = {
         maxContentTab: "650px"
       },
     },
+
+      // screens: {
+      //   'xs': '475px',
+      //   ...defaultTheme.screens,
+      // },
+  
+
   },
   plugins: [],
 };
