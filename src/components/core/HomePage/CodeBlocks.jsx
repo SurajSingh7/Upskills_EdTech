@@ -14,7 +14,7 @@ const CodeBlocks = ({
   codeColor,
 }) => {
   return (
-    <div className={`flex ${position} my-20 justify-between flex-col lg:gap-10 gap-10`}>
+    <div className={`flex ${position} my-24 justify-between flex-col lg:gap-10 gap-10`}>
 
 
       {/* Section 1  */}
