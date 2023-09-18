@@ -4,16 +4,15 @@ import { useParams } from 'react-router-dom'
 import { apiConnector } from '../services/apiconnector';
 import { categories } from '../services/apis';
 import { getCatalogaPageData } from '../services/operations/pageAndComponentData';
-// import Course_Card from '../components/core/Catalog/Course_Card';
 import CourseSlider from '../components/core/Catalog/CourseSlider';
 import { useSelector } from "react-redux"
 import Error from "./Error"
+import ReviewSlider from '../components/common/ReviewSlider';
 
 const Catalog = () => {
 
     const { loading } = useSelector((state) => state.profile)
     const { catalogName } = useParams()
-    const [active, setActive] = useState(1)
     const [catalogPageData, setCatalogPageData] = useState(null);
     const [categoryId, setCategoryId] = useState("");
 
@@ -62,9 +61,14 @@ const Catalog = () => {
     
       return (
         <>
-          {/*  Section-> Full Route Path , name , description part*/}
-          <div className=" box-content bg-richblack-800 px-4">
-            <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
+        
+        
+
+       
+
+           {/*  Section-> Full Route Path , name , description part*/}
+           <div className="  box-content bg-richblack-800 px-4">
+            <div className="mx-7 flex min-h-[200px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
               <p className="text-sm text-richblack-300">
                 {`Home / Courses / `}
                 <span className="text-yellow-25">
@@ -79,83 +83,53 @@ const Catalog = () => {
               </p>
             </div>
           </div>
+ 
 
-    
-          {/* Section 1 */}
-          <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="section_heading ">Courses to get you started </div>
-            <div className="my-4 flex border-b border-b-richblack-600 text-sm">
-              <p
-                className={`px-4 py-2 ${
-                  active === 1
-                    ? "border-b border-b-yellow-25 text-yellow-25"
-                    : "text-richblack-50"
-                } cursor-pointer`}
-                onClick={() => setActive(1)}
-              >
-                {/* Most Populer */}
-                {/* Todo: later most populer & new courses part */}
-                {catalogPageData?.data?.selectedCategory?.name}
+          {/* Section 1  */}
+          <div className=" mx-auto box-content w-[97%]  px-4 mb-5  lg:max-w-maxContent ">
+              <div className=" py-5 mx-7 section_heading"> 
 
-              </p>
-              {/* <p
-                className={`px-4 py-2 ${
-                  active === 2
-                    ? "border-b border-b-yellow-25 text-yellow-25"
-                    : "text-richblack-50"
-                } cursor-pointer`}
-                onClick={() => setActive(2)}
-              >
-                New
-              </p> */}
-            </div>
-            <div>
-              <CourseSlider
-                Courses={catalogPageData?.data?.selectedCategory?.courses}
-              />
-            </div>
-          </div>
-
-
-          {/* Section 2 */}
-          <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="section_heading">
-              Top courses in {catalogPageData?.data?.differentCategory?.name}
-            </div>
-            <div className="py-8">
-              <CourseSlider
-                Courses={catalogPageData?.data?.differentCategory?.courses}
-              />
-            </div>
-          </div>
-    
-          {/* Section 3.0  */}
-          <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="section_heading">
-              Top courses in {catalogPageData?.data?.mostSellingCourses?.courses}
-            </div>
-            <div className="py-8">
-              <CourseSlider
-                Courses={catalogPageData?.data?.mostSellingCourses?.courses}
-              />
-            </div>
-          </div>
-
-           {/* Section 3 */}
-            {/* <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="section_heading">Frequently Bought</div>
-            <div className="py-8">
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                {catalogPageData?.data?.mostSellingCourses
-                  ?.slice(0, 4)
-                  .map((course, i) => (
-                    <Course_Card course={course} key={i} Height={"h-[400px]"} />
-                  ))}
+              <div className="section_heading ">Courses to get you started </div>
+                <div className="my-4 flex border-b border-b-richblack-600 text-sm">
+                  <p className="border-b border-b-yellow-25 text-yellow-25">
+                   {catalogPageData?.data?.selectedCategory?.name}
+                   </p>
+                </div>
               </div>
-            </div>
-          </div> */}
 
-    
+              <div className='mx-5'>
+              <CourseSlider  Courses={catalogPageData?.data?.selectedCategory?.courses} />
+              </div>
+
+          </div>
+
+
+
+             {/* Section 2  */}
+          <div className=" mx-auto box-content w-[97%]  px-4 py-10 lg:max-w-maxContent ">
+              <div className=" py-5 mx-7 section_heading">Top courses in {catalogPageData?.data?.differentCategory?.name}</div>
+
+              <div className='mx-5'>
+              <CourseSlider Courses={catalogPageData?.data?.differentCategory?.courses} />
+              </div>
+
+          </div>
+
+
+             {/* Section 3  */}
+          <div className=" mx-auto box-content w-[97%]  px-4 py-8 lg:max-w-maxContent  ">
+              <div className=" py-5 mx-7 section_heading"> Top Trending  courses </div>
+
+              <div className='mx-5'>
+              <CourseSlider Courses={catalogPageData?.data?.mostSellingCourses?.slice(0,5)} />
+              </div>
+
+          </div>
+
+        
+          <div className=' py-10 m-10'> <ReviewSlider /> </div> 
+          
+
           <Footer />
         </>
       )

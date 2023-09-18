@@ -8,6 +8,9 @@ import CodeBlocks from "../components/core/HomePage/CodeBlocks"
 import HighlightText from "../components/core/HomePage/HighLightText"
 import InstructorSection from "../components/core/HomePage/InstructorSection"
 import { BannerComp } from "../components/core/HomePage/BannerComp"
+import { TopCourses } from "../components/core/HomePage/TopCourses"
+import TimelineSection from "../components/core/HomePage/TimeLineSection"
+import { Link } from "react-router-dom"
 
 
 
@@ -21,7 +24,7 @@ function Home() {
        <div className="mt-0">
 
          <BannerComp/>
-         
+
         {/* Code Section 1  */}
         <div>
           <CodeBlocks
@@ -83,44 +86,28 @@ function Home() {
 
         </div>
 
-        {/* CourseSlider Section */}
-         {/* < /> */}
+        {/* TopCourses Section */}
+         < TopCourses/>
 
       </div>
 
-      {/* Section 2 bg-pure-greys-5 */}
-      <div className="bg-caribbeangreen-200  text-richblack-700">
+      
+      {/* Section 2 */}
+      <div className="relative mx-auto my-1 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+       
+       {/* Job that is in Demand - Section 1 */}
+          <div className="mb-10 flex flex-col justify-between gap-7 lg:mt-7 lg:flex-row lg:gap-0">
 
-        <div className="homepage_bg h-[320px]">
-          {/* Explore Full Catagory Section */}
-          <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
-            <div className="lg:h-[150px]"></div>
+           {/* <div className=" h-20 lg:h-0 lg:invisible "> </div> */}
 
-            <div className="flex flex-row gap-7 text-white lg:mt-8">
-              <CTAButton active={true} linkto={"/signup"}>
-                <div className="flex items-center gap-2">
-                  Explore Full Catalog
-                  <FaArrowRight />
-                </div>
-              </CTAButton>
-              <CTAButton active={false} linkto={"/login"}>
-                Learn More
-              </CTAButton>
-            </div>
-
-          </div>
-        </div>
-
-        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 ">
-          {/* Job that is in Demand - Section 1 */}
-          <div className="mb-10 mt-[-100px] flex flex-col justify-between gap-7 lg:mt-20 lg:flex-row lg:gap-0">
             <div className="text-4xl font-semibold lg:w-[45%] ">
               Get the skills you need for a{" "}
               <HighlightText text={"job that is in demand."} />
             </div>
+
             <div className="flex flex-col items-start gap-10 lg:w-[40%]">
               <div className="text-[16px]">
-                The modern upskills is the dictates its own terms. Today, to
+                The modern Upskills is the dictates its own terms. Today, to
                 be a competitive specialist requires more than professional
                 skills.
               </div>
@@ -129,25 +116,21 @@ function Home() {
               </CTAButton>
             </div>
           </div>
-        </div>
+       
 
-      </div>
-
-      {/* Section 3 */}
-      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
         {/* Become a instructor section */}
+        <TimelineSection />
+
+         {/* Become a instructor section */}
         <InstructorSection />
 
         {/* Reviws from Other Learner */}
-        <h1 className="text-center text-4xl font-semibold mt-8 ">
-          Reviews from other learners
-        </h1>
         <ReviewSlider />
 
       </div>
 
      
-
+      <div className="h-20"></div>
       {/* Footer */}
       <Footer />
     </div>

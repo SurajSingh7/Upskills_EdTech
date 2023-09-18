@@ -70,7 +70,7 @@ export default function ProfileDropdown() {
       {open && (
         <div
           // onClick={(e) => e.stopPropagation()}
-          className="absolute top-[145%]  right-[-5%] z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
+          className="absolute top-[170%]  right-[-5%] z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
           
         >
 

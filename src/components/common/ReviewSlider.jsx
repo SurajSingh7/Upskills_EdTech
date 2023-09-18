@@ -45,8 +45,23 @@ function ReviewSlider() {
   };
 
   return (
+
+      
+     
+      
+    
     <div className="text-white w-full shadow-[1px_-2px_20px_-2px] shadow-caribbeangreen-100 md:flex  lg:flex-col md:justify-end">
+      
+     
+      <div className="h-5"></div>
+      <h1 className="text-center text-4xl font-semibold visible md:invisible lg:visible"> Reviews from other learners</h1>
+    
       <div className="  my-[50px] h-[180px] max-w-maxContentTab  lg:max-w-maxContent ">
+
+      <div className="h-0 md:h-16 lg:h-7 invisible md:visible lg:invisible " >
+         <h1 className="  text-center text-4xl font-semibold -my-9"> Reviews from other learners</h1>
+      </div>
+
         <Swiper
            slidesPerView={1}
            pagination={pagination}
@@ -62,7 +77,7 @@ function ReviewSlider() {
                slidesPerView: 3,
              },
              624: {
-              slidesPerView: 1,
+              slidesPerView: 2,
             },
            }}
 

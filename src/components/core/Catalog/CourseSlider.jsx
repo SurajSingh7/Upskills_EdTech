@@ -28,7 +28,7 @@ const CourseSlider = ({Courses}) => {
         <Swiper
          pagination={pagination}
          modules={[Pagination,Autoplay]}
-        //  spaceBetween={30}
+         spaceBetween={35}
          rewind={true}
          navigation={true}
          autoplay={{
@@ -39,12 +39,15 @@ const CourseSlider = ({Courses}) => {
            1024: {
              slidesPerView: 3,
            },
+           624: {
+            slidesPerView: 2,
+          },
          }}
         >
 
           {Courses?.map((course, i) => (
             <SwiperSlide key={i}>
-              <Course_Card course={course} Height={"h-[250px]"} />
+              <Course_Card course={course} Height={"h-[180px]"} />
             </SwiperSlide>
           ))}
 
