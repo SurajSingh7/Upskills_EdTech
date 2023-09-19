@@ -38,6 +38,7 @@ export default function ViewCourse() {
         <VideoDetailsSidebar setReviewModal={setReviewModal} />
         <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
           <div className="mx-6">
+            <div className="h-[18px] bg-pink-100 "> </div>
             <Outlet />
           </div>
         </div>

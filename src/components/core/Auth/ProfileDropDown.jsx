@@ -33,6 +33,7 @@ export default function ProfileDropdown() {
     // let userName="surajsingh";
     let userName=user.firstName;
 
+
     if(!(userName.length<=10)){
        userName=userName.substring(0,8)+".";
     }
@@ -41,9 +42,12 @@ export default function ProfileDropdown() {
     
       <button className="relative" >
         
-      <div ref={proRef} onClick={() => setOpen(!open)} className="flex items-center gap-x-1 text-sm text-richblack-100 font-bold ">
-
-        {`Hi ${userName}! `}
+      <div ref={proRef} onClick={() => setOpen(!open)} className="flex  items-center gap-x-1 text-sm text-richblack-100 font-bold ">
+       
+       <div className=" hidden lg:block">
+             {`Hi ${userName}! `}
+       </div>
+     
 
         <img
           src={user?.image}
@@ -70,7 +74,7 @@ export default function ProfileDropdown() {
       {open && (
         <div
           // onClick={(e) => e.stopPropagation()}
-          className="absolute top-[170%]  right-[-5%] z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
+          className="absolute top-[155%] right-[-20%]  md:top-[170%]  md:right-[-5%] z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
           
         >
 

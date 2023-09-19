@@ -13,6 +13,7 @@ import { FaArrowRight } from 'react-icons/fa';
 
     const { loading } = useSelector((state) => state.profile)
     const catalogName="web-developement";
+    const navbarFlag="ture";
     const [catalogPageData, setCatalogPageData] = useState(null);
     const [categoryId, setCategoryId] = useState("");
 
@@ -32,7 +33,7 @@ import { FaArrowRight } from 'react-icons/fa';
     useEffect(() => {
         const getCategoryDetails = async() => {
             try{
-                const res = await getCatalogaPageData(categoryId);
+                const res = await getCatalogaPageData(categoryId,navbarFlag);
                 console.log("PRinting res: ", res);
                 setCatalogPageData(res);
             }
