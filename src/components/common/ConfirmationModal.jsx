@@ -39,6 +39,8 @@ export default function ConfirmationModal({ modalData }) {
           <button
             className="cursor-pointer rounded-md bg-richblack-200 py-[8px] px-[20px] font-semibold text-richblack-900"
             onClick={modalData?.btn2Handler}
+            // onClick={}
+            onclick={modalData?.btn1Handler}
           >
             {modalData?.btn2Text}
           </button>

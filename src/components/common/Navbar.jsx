@@ -4,7 +4,7 @@
 
 import { useEffect, useRef,useState } from "react"
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
-import { BsChevronDown } from "react-icons/bs"
+import { BsChevronDown ,BiMenuAltRight} from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
@@ -14,6 +14,9 @@ import { apiConnector } from "../../services/apiconnector"
 import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import ProfileDropdown from "../core/Auth/ProfileDropDown"
+
+import {ImCross} from "react-icons/im"
+import SmallScreenNavbar from "./SmallScreenNavbar"
 
 // import NavbarMobile from "./NavbarMobile";
 // import useOnClickOutside from "../../hooks/useOnClickOutside";
@@ -28,6 +31,8 @@ function Navbar() {
 
   const [subLinks, setSubLinks] = useState([])
   const [loading, setLoading] = useState(false)
+
+  const [isClose, setIsClose] = useState(false);
 
   useEffect(() => {
      (async () => {
@@ -48,10 +53,11 @@ function Navbar() {
     return matchPath({ path: route }, location.pathname)
   }
 
-    // //Mobile navbar
-    // const [isOpen, setIsOpen] = useState(false);
-    // const ref = useRef(null);
-    // useOnClickOutside(ref, () => setIsOpen(false));
+    //For SmallScreen
+    const handleCrossButton = () => { 
+      isClose = isClose ? setIsClose(false) : setIsClose(true);  
+      // smallScreen = smallScreen ? setSmallScreen(false) : setSmallScreen(true);
+    }
 
   return (
     
@@ -66,6 +72,9 @@ function Navbar() {
       ${location.pathname !== "/" ? " shadow-[10px_-5px_35px_-5px] shadow-blue-200 " : ""}
         transition-all duration-200 shadow-[10px_-5px_35px_-5px] shadow-blue-200 ` }
     >
+
+
+        {/* For SmallScreen */}
        <div className="  md:hidden  flex h-auto mb-[9px] justify-between shadow-[10px_-5px_35px_-5px] shadow-blue-200">
 
        <Link to="/" className="visible flex-col flex  md:invisible m-[6px] mx-1 ">
@@ -73,9 +82,29 @@ function Navbar() {
           <div className=" border-1 border-richblack-700 "> </div>
         </Link>
 
-        <button className="mr-6  md:hidden text-white mb-2 m-[6px]">
-          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+        <button className="mr-6  md:hidden text-white mb-2 m-[6px]"
+          onClick={handleCrossButton}
+        >
+           {(isClose)?<ImCross fontSize={24} fill="#AFB2BF" />: <AiOutlineMenu fontSize={24} fill="#AFB2BF" /> }
         </button>
+
+
+    
+
+      {
+        isClose && <SmallScreenNavbar 
+                      isClose={isClose}
+                      // setIsClose={setIsClose}
+                      handleCrossButton={handleCrossButton} />
+      }
+
+
+
+
+
+
+
+
 
 
        </div>
@@ -83,15 +112,14 @@ function Navbar() {
        
 
       <div className="  mx-4 justify-between  sm:justify-center   flex w-11/12 max-w-maxContent items-center  md:justify-between ">
-        {/* Logo */}
-
-       
-
-
+        
+         {/* Logo */}
         <Link to="/" className="hidden md:block">
           <img src={logo} alt="Logo" width={165} height={35} loading="lazy"  />
         </Link>
 
+
+          {/* For SmallScreen */}
          <Link to="/">
             <button className=" md:hidden text-white "> Home  </button>
         </Link>
@@ -115,13 +143,12 @@ function Navbar() {
                           : "text-richblack-25"
                       }`}
                       
-                    >
-                      
+                    > 
                       <p>{link.title}</p>
                       <BsChevronDown />
           
-                      <div className="invisible absolute left-[50%] top-[80%] md:top-[90%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5  p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
-                        <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5 "></div>
+                      <div className="invisible absolute left-[90%] md:left-[50%] top-[80%] md:top-[90%] z-[1000] flex w-[290px] md:w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5  p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
+                        <div className="absolute left-[40%]  md:left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5 "></div>
                         
                         {loading ? (
                           <p className="text-center">Loading...</p>
