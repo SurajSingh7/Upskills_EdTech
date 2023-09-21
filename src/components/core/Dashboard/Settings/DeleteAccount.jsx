@@ -33,12 +33,16 @@ export default function DeleteAccount() {
           <h2 className="text-lg font-semibold text-richblack-5">
             Delete Account
           </h2>
-          <div className="w-3/5 text-pink-25">
+          <div className="w-[100%] text-pink-25">
             <p>Would you like to delete account?</p>
-            <p>
+            <p className="md:hidden">
+               Deleting your account is permanent and will remove all the contain associated with it.
+            </p>
+            <p className="hidden md:block">
               This account may contain Paid Courses. Deleting your account is
               permanent and will remove all the contain associated with it.
             </p>
+
           </div>
           <button
 

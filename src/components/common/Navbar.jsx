@@ -19,10 +19,8 @@ import ProfileDropdown from "../core/Auth/ProfileDropDown"
 
 import {ImCross} from "react-icons/im"
 import SmallScreenNavbar from "./SmallScreenNavbar"
+import SmallScreenBottonNavbar from "./SmallScreenBottomNavbar"
 
-// import NavbarMobile from "./NavbarMobile";
-// import useOnClickOutside from "../../hooks/useOnClickOutside";
-// import Skeleton from "react-loading-skeleton";
 
 
 function Navbar() {
@@ -225,12 +223,13 @@ function Navbar() {
         </button>
 
        {isClose && <SmallScreenNavbar  isClose={isClose} handleCrossButton={handleCrossButton} />}
+        {<SmallScreenBottonNavbar/>}
        
       </div>
     </div>
 
   </>
-  
+
   )
 }
 

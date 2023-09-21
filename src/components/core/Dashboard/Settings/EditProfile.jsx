@@ -192,6 +192,7 @@ export default function EditProfile() {
           </button>
           <IconBtn type="submit" text="Save" />
         </div>
+        
       </form>
     </>
   )
