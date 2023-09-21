@@ -2,24 +2,18 @@ import { useEffect, useState } from "react"
 import { BsChevronDown } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, matchPath, useLocation, useNavigate } from "react-router-dom"
-import * as Icons from "react-icons/vsc"
 import {logout} from "../../services/operations/authAPI"
-import { VscSignOut } from "react-icons/vsc"
 
-// import logo from "../../assets/Logo/Logo-Full-Light.png"
 import { NavbarLinks } from "../../data/navbar-links"
 import { sidebarLinks } from "../../data/dashboard-links"
 import { apiConnector } from "../../services/apiconnector"
 import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import ConfirmationModal from "./ConfirmationModal"
-import ProfileDropdown from "../core/Auth/ProfileDropDown" 
-
-// import {ImCross} from "react-icons/im"
+ 
 export default function SmallScreenNavbar({handleCrossButton, isClose}) {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
-  const { totalItems } = useSelector((state) => state.cart)
   const location = useLocation()
 
   const dispatch = useDispatch()
@@ -28,14 +22,9 @@ export default function SmallScreenNavbar({handleCrossButton, isClose}) {
   const [loading, setLoading] = useState(false)
   const [confirmationModal, setConfirmationModal] = useState(null)
 
-  // const windowWidth = useRef(window.innerWidth);
-  // console.log("--------window-width----", windowWidth);
-  // const [smallScreen, setSmallScreen] = useState(false);
-  // const [isClose, setIsClose] = useState(false);
-
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       setLoading(true)
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
@@ -72,7 +61,7 @@ export default function SmallScreenNavbar({handleCrossButton, isClose}) {
   return (
     <div
     className={`
-      flex flex-col fixed right-0 top-[49px] h-[420px] sm:h-[500px]   justify-center z-[1000] backdrop-blur-3xl 
+      flex flex-col fixed right-0  top-[63px] h-[420px]        sm:h-[500px]   justify-center z-[1000] backdrop-blur-3xl 
       shadow-[10px_10px_25px_-20px] shadow-richblack-25  w-[100%] transition-all duration-200`}
   >
   
@@ -345,7 +334,7 @@ export default function SmallScreenNavbar({handleCrossButton, isClose}) {
      
     </div>
 
-      {confirmationModal && <ConfirmationModal modalData={confirmationModal} handleCrossButton={handleCrossButton} />}
+      {confirmationModal && <ConfirmationModal modalData={confirmationModal}  />}
     </div>
       
   )

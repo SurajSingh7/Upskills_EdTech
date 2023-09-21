@@ -8,7 +8,9 @@ import { BsChevronDown ,BiMenuAltRight} from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
-import logo from "../../assets/Logo/Logo-Full-Light.png"
+import logoFull from "../../assets/Logo/Logo-Full-Light.png"
+import logo from "../../assets/Logo/Logo.png"
+
 import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiconnector"
 import { categories } from "../../services/apis"
@@ -61,12 +63,12 @@ function Navbar() {
 
   return (
     
-    <>
-     <div className="md:h-14 h-[105px]  bg-transparent"></div>  
+  <>
+     <div className="md:h-14 h-[63px]  bg-transparent"></div>  
     
 
     <div
-      className={` flex-row md:flex h-[105px] md:h-[75px] items-center justify-center border-b-[1px] border-b-richblack-700
+      className={` flex-row md:flex h-[63px] md:h-[75px] items-center justify-center border-b-[1px] border-b-richblack-700
       fixed z-50 top-0 left-0 w-full 
       ${location.pathname !== "/" ? "bg-richblack-800" : "bg-richblack-900"} 
       ${location.pathname !== "/" ? " shadow-[10px_-5px_35px_-5px] shadow-blue-200 " : ""}
@@ -74,70 +76,33 @@ function Navbar() {
     >
 
 
-        {/* For SmallScreen */}
-       <div className="  md:hidden  flex h-auto mb-[9px] justify-between shadow-[10px_-5px_35px_-5px] shadow-blue-200">
-
-       <Link to="/" className="visible flex-col flex  md:invisible m-[6px] mx-1 ">
-          <img src={logo} alt="Logo" width={130}  loading="lazy" className="mb-2 mx-auto" />
-          <div className=" border-1 border-richblack-700 "> </div>
-        </Link>
-
-        <button className="mr-6  md:hidden text-white mb-2 m-[6px]"
-          onClick={handleCrossButton}
-        >
-           {(isClose)?<ImCross fontSize={24} fill="#AFB2BF" />: <AiOutlineMenu fontSize={24} fill="#AFB2BF" /> }
-        </button>
-
-
-    
-
-      {
-        isClose && <SmallScreenNavbar 
-                      isClose={isClose}
-                      // setIsClose={setIsClose}
-                      handleCrossButton={handleCrossButton} />
-      }
-
-
-
-
-
-
-
-
-
-
-       </div>
-      
-       
-
-      <div className="  mx-4 justify-between  sm:justify-center   flex w-11/12 max-w-maxContent items-center  md:justify-between ">
+      <div className="  mx-4  m-4 md:m-0 justify-between gap-x-1  sm:justify-center sm:gap-x-10 md:gap-x-0 flex w-11/12 max-w-maxContent items-center  md:justify-between ">
         
          {/* Logo */}
         <Link to="/" className="hidden md:block">
-          <img src={logo} alt="Logo" width={165} height={35} loading="lazy"  />
+          <img src={logoFull} alt="Logo" width={165} height={35} loading="lazy"  />
         </Link>
 
 
           {/* For SmallScreen */}
-         <Link to="/">
-            <button className=" md:hidden text-white "> Home  </button>
-        </Link>
 
-    
+          <Link to="/" className="flex relative md:hidden ">
 
+               <div> <img src={logo}  width={27}  className=" text-transparent absolute" /> ......</div>
+               <div><button className=" md:hidden text-white  text-base "> Upskills  </button></div>
+         </Link>
 
 
         {/* Navigation links */}
         <nav className=" md:block">
-          <ul className="flex gap-x-6 text-richblack-25">
+          <ul className="flex  md:gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
                 {link.title === "Courses" ? (
                   <>
                  
                     <div
-                      className={`group relative flex cursor-pointer items-center gap-1 ${
+                      className={`group relative flex  cursor-pointer items-center gap-1 ${
                         matchRoute("/catalog/:catalogName")
                           ? "text-yellow-25"
                           : "text-richblack-25"
@@ -198,8 +163,8 @@ function Navbar() {
             ))}
           </ul>
         </nav>
-
-
+ 
+        
         {/* Login / Signup / Dashboard */}
         <div className=" flex  items-center gap-x-3  md:gap-x-4 md:flex">
 
@@ -228,7 +193,7 @@ function Navbar() {
               </button>
             
               {/* for mobile */}
-              <button className="  text-sm px-[2px] py-[2px] rounded-[5px] border-2  border-caribbeangreen-300 bg-richblack-800 text-richblack-25 md:hidden ">
+              <button className="  text-sm px-[1px] py-[2px] rounded-[5px] border-2  border-caribbeangreen-300 bg-richblack-800 text-richblack-25 md:hidden ">
                 Login
               </button>
 
@@ -243,7 +208,7 @@ function Navbar() {
               </button>
              
               {/* for mobile */}
-              <button className="  text-sm px-[2px] py-[2px] rounded-[5px] border-2  border-caribbeangreen-300 bg-richblack-800  text-richblack-25 md:hidden ">
+              <button className="  text-sm px-[1px] py-[2px] rounded-[5px] border-2  border-caribbeangreen-300 bg-richblack-800  text-richblack-25 md:hidden ">
                 Signup
               </button>
 
@@ -252,19 +217,20 @@ function Navbar() {
           {token !== null && <ProfileDropdown />}
         </div>
         
-        {/* <button className="mr-4 md:hidden">
-          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-        </button> */}
+      
+        <button className="flex justify-center items-center0 md:hidden"
+          onClick={handleCrossButton}
+        >
+           {(isClose)?<ImCross fontSize={24} fill="#AFB2BF" />: <AiOutlineMenu fontSize={24} fill="#AFB2BF" /> }
+        </button>
 
-        
-
-
-
-
+       {isClose && <SmallScreenNavbar  isClose={isClose} handleCrossButton={handleCrossButton} />}
+       
       </div>
     </div>
 
-    </>
+  </>
+  
   )
 }
 

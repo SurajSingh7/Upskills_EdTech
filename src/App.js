@@ -20,7 +20,7 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute.jsx";
 
 import Error from "./pages/Error"
-// import Settings from "./components/core/Dashboard/Settings";
+import Settings from "./components/core/Dashboard/Settings";
 import { useDispatch, useSelector } from "react-redux";
 
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
@@ -101,6 +101,7 @@ function App() {
      <Route  element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }>
 
         <Route path="dashboard/my-profile" element={<MyProfile />} />
+        <Route path="dashboard/Settings" element={<Settings />} />
        {
          user?.accountType === ACCOUNT_TYPE.STUDENT && (
            <>
