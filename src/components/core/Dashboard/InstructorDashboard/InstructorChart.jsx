@@ -40,7 +40,7 @@ export default function InstructorChart({ courses }) {
     labels: courses.map((course) => course.courseName),
     datasets: [
       { 
-        label:"Amount Generated",
+        label:"Revenue",
         data: courses.map((course) => course.totalAmountGenerated),
         backgroundColor: generateRandomColors(courses.length),
       },
@@ -60,7 +60,7 @@ export default function InstructorChart({ courses }) {
    }
 
   return (
-    <div className="flex flex-1 flex-col gap-y-4 rounded-md bg-richblack-800 p-6">
+    <div className="flex  flex-col gap-y-4  rounded-md bg-richblack-800 p-6">
       <p className="text-lg font-bold text-richblack-5">Visualize</p>
      
       {/* part-1 */}
@@ -93,7 +93,7 @@ export default function InstructorChart({ courses }) {
       </div>
 
       {/* part-2 */}
-      <div className="relative mx-auto aspect-square h-full w-full">
+      <div className="relative  -mx-4 aspect-video  xl:h-full xl:w-fit">
        
         {/* Render the Pie chart based on the selected chart */}
           <Bar
