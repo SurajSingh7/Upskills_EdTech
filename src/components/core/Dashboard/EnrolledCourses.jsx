@@ -45,7 +45,7 @@ export default function EnrolledCourses() {
           {/* Headings */}
           <div className="flex rounded-t-lg bg-richblack-500 ">
             <p className="w-[45%] px-5 py-3">Course Name</p>
-            <p className="w-1/4 px-2 py-3">Duration</p>
+            <p className="w-1/4 px-2 py-3 invisible sm:visible">Duration</p>
             <p className="flex-1 px-2 py-3">Progress</p>
           </div>
 
@@ -86,7 +86,7 @@ export default function EnrolledCourses() {
 
 
                  {/* duration */}
-              <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div>
+              <div className="w-1/4 px-2 py-3 invisible sm:visible">{course?.totalDuration}</div>
 
               {/* progress */}
               <div className="flex w-1/5 flex-col gap-2 px-2 py-3">

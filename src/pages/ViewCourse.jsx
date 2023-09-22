@@ -34,7 +34,8 @@ export default function ViewCourse() {
 
   return (
     <>
-      <div className="relative flex min-h-[calc(100vh-3.5rem)]">
+      {/* For Large Screen */}
+      <div className=" hidden relative md:flex min-h-[calc(100vh-3.5rem)]">
         <VideoDetailsSidebar setReviewModal={setReviewModal} />
         <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
           <div className="mx-6">
@@ -43,6 +44,21 @@ export default function ViewCourse() {
           </div>
         </div>
       </div>
+    
+
+      
+      {/* For Small Screen */}
+       <div className="md:hidden">
+          <div className="" >
+           <Outlet />
+          </div>
+       
+        <div className=" -mt-7">
+            <VideoDetailsSidebar setReviewModal={setReviewModal} />
+        </div>
+      </div>
+
+
       {reviewModal && <CourseReviewModal setReviewModal={setReviewModal} />}
     </>
   )

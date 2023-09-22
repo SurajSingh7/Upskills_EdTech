@@ -173,7 +173,7 @@ const VideoDetails = () => {
     <div className="flex flex-col gap-5 text-white">
       {!videoData ? ( <img src={previewSource} alt="Preview" className="h-full w-full rounded-md object-cover"/> ) : (
 
-       <div className=" my-[4%] mx-[7%] w-[83%] shadow-[10px_-9px_15px_-9px] shadow-richblack-800">
+       <div className="md:my-[4%] md:mx-[7%] md:w-[83%] my-[2%] w-[100%] shadow-[10px_-9px_15px_-9px] shadow-richblack-800">
         {/* https://video-react.js.org/components/forward-control/ */}
 
         <Player
@@ -199,7 +199,7 @@ const VideoDetails = () => {
           {videoEnded && (
             <div
               style={{ backgroundImage:"linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.1)" }}
-               className="full absolute inset-0 z-[100] grid h-full place-content-center font-inter"
+               className="full absolute inset-0 z-[49] grid h-full place-content-center font-inter"
             >
 
               {/* Mark As Completed btn */}
