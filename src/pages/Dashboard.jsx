@@ -24,6 +24,7 @@ function Dashboard() {
           
         <div className="h-[18px "> </div>
           <Outlet />
+          <div className=" h-[50px] md:block"></div>
         </div>
       </div>
 
