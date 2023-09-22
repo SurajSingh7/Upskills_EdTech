@@ -6,7 +6,7 @@ import UpdatePassword from "./UpdatePassword"
 export default function Settings() {
   return (
     <>
-      <h1 className="mb-14 text-xl sm:text-2xl lg:text-3xl font-medium text-richblack-5">
+      <h1 className=" mb-5 md:mb-8 text-2xl md:text-3xl font-medium text-richblack-5">
         Edit Profile
       </h1>
       {/* Change Profile Picture */}

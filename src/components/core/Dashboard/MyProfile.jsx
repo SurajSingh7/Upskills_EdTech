@@ -10,9 +10,7 @@ export default function MyProfile() {
   const navigate = useNavigate()
 
 
-
   /*
-
   #Profile
   1.h1-> my profile 
   2.div-1 -> name & image wala
@@ -20,26 +18,25 @@ export default function MyProfile() {
   4.div-3 -> Personals details
   */
 
-    
-
+  
   return (
     <>
       
       {/* 1.my profile ->h1 */}
-      <h1 className="mb-14 text-3xl font-medium text-richblack-5">
+      <h1 className="mb-5 text-2xl md:3xl md:mb-6  font-medium text-richblack-5">
         My Profile
       </h1>
       
 
       {/* 2.div-1 -> name & image wala */}
-      <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+      <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-5 px-2 md:px-12">
        
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-1">
 
           <img
             src={user?.image}
             alt={`profile-${user?.firstName}`}
-            className="aspect-square w-[78px] rounded-full object-cover"
+            className="aspect-square w-[58px] md:w-[78px] rounded-full object-cover"
           />
           
           <div className="space-y-1">
@@ -50,7 +47,8 @@ export default function MyProfile() {
           </div>
         </div>
         
-        {/* edit button */}
+        {/* edit button for pc */}
+        <div className=" hidden md:block">
         <IconBtn
           text="Edit"
           onclick={() => {
@@ -59,12 +57,34 @@ export default function MyProfile() {
         >
           <RiEditBoxLine />
         </IconBtn>
+        </div>
+
+           {/* edit button for mobile */}
+        <div className=" h-16 md:hidden">
+        <IconBtn
+          text="Edit"
+          onclick={() => {
+            navigate("/dashboard/settings")
+          }}
+        >
+          <RiEditBoxLine />
+        </IconBtn>
+        </div>
+
+
+
+
+
+
+
+
+
 
       </div>
 
 
       {/* 3.div-2 -> About */}
-      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-5 px-2 md:px-12">
         
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">About</p>
@@ -92,7 +112,7 @@ export default function MyProfile() {
 
 
       {/* 4.div-3 -> Personals details */}
-      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-5 px-2 md:px-12">
         
         {/* pers..deta & edit */}
         <div className="flex w-full items-center justify-between">

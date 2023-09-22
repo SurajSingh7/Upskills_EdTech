@@ -25,7 +25,7 @@ export default function DeleteAccount() {
 
   return (
     <>
-      <div className="my-10 flex flex-row gap-x-5 rounded-md border-[1px] border-pink-700 bg-pink-900 p-8 px-12">
+      <div className="my-10 flex flex-row gap-x-5 rounded-md border-[1px] border-pink-700 bg-pink-900 p-5 px-12">
         <div className="flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-pink-700">
           <FiTrash2 className="text-3xl text-pink-200" />
         </div>
@@ -34,7 +34,7 @@ export default function DeleteAccount() {
             Delete Account
           </h2>
           <div className="w-[100%] text-pink-25">
-            <p>Would you like to delete account?</p>
+            <p className="hidden md:block">Would you like to delete account?</p>
             <p className="md:hidden">
                Deleting your account is permanent and will remove all the contain associated with it.
             </p>
