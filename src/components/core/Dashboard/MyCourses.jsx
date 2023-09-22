@@ -24,7 +24,7 @@ export default function MyCourses() {
   }, [])
 
   return (
-    <div>
+    <div className="mx-auto w-11/12 py-10">
 
         {/* MyCoures & AddCourses+ */}
       <div className="mb-14 flex items-center justify-between">

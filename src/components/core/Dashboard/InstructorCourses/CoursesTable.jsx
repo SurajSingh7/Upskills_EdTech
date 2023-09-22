@@ -30,11 +30,6 @@ export default function CoursesTable({ courses, setCourses }) {
     setLoading(true)
     await deleteCourse({ courseId: courseId }, token)
 
-    // const result = await fetchInstructorCourses(token)
-    // if (result) {
-    //   setCourses(result)
-    // }
-
     setConfirmationModal(null)
     setLoading(false)
 
@@ -44,17 +39,15 @@ export default function CoursesTable({ courses, setCourses }) {
 
   return (
     <>
-
       <Table className="rounded-xl border border-richblack-800 ">
-
-        <Thead>
-          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
+        <Thead >
+          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2 text-richblack-100">
             <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
               Courses
             </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+            {/* <Th className="text-left text-sm font-medium uppercase text-richblack-100">
               Duration
-            </Th>
+            </Th> */}
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
               Price
             </Th>
@@ -63,7 +56,6 @@ export default function CoursesTable({ courses, setCourses }) {
             </Th>
           </Tr>
         </Thead>
-
         <Tbody>
           {courses?.length === 0 ? (
             <Tr>
@@ -74,28 +66,22 @@ export default function CoursesTable({ courses, setCourses }) {
             </Tr>
           ) : (
             courses?.map((course) => (
-
               <Tr
-                key={course._id}
-                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                key={course?._id}
+                className="flex gap-x-10 border-b border-richblack-800  shadow-[10px_10px_25px_-20px] shadow-blue-200 px-6 my-14 mt-0 md:my-0 py-8 gap-15"
               >
-                <Td className="flex flex-1 gap-x-4">
-                    {/* image */}
+                <Td colSpan={1}  className="flex flex-1 gap-x-4 p-3">
                   <img
                     src={course?.thumbnail}
                     alt={course?.courseName}
-                    className="h-[148px] w-[220px] rounded-lg object-cover"
+                    className="md:h-[148px] md:w-[220px] aspect-video rounded-lg object-cover"
                   />
-
-                  <div className="flex flex-col justify-between">
-                    {/* courseName */}
-                    <p className="text-lg font-semibold text-richblack-5">
+                  <div className="flex flex-col gap-1 justify-between">
+                    <p className="text-lg font-semibold text-richblack-5 mt-3">
                       {course.courseName}
                     </p>
-
-                     {/* Course Descripion */}
                     <p className="text-xs text-richblack-300">
-                      {course.courseDescription.split(" ").length >
+                      {course?.courseDescription.split(" ")?.length >
                       TRUNCATE_LENGTH
                         ? course.courseDescription
                             .split(" ")
@@ -103,13 +89,9 @@ export default function CoursesTable({ courses, setCourses }) {
                             .join(" ") + "..."
                         : course.courseDescription}
                     </p>
-
-                    {/* created: date */}
                     <p className="text-[12px] text-white">
-                      Created: {formatDate(course.createdAt)}
+                      Created: {formatDate(course?.createdAt || course?.updatedAt)}
                     </p>
-
-                    {/* draft & publish part */}
                     {course.status === COURSE_STATUS.DRAFT ? (
                       <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-pink-100">
                         <HiClock size={14} />
@@ -124,41 +106,31 @@ export default function CoursesTable({ courses, setCourses }) {
                       </p>
                     )}
                   </div>
-
                 </Td>
-
-                 {/* Course duration */}
-                <Td className="text-sm font-medium text-richblack-100">
-                  5hr+
-                </Td>
-
-                 {/* course price */}
-                <Td className="text-sm font-medium text-richblack-100">
+                {/* <Td className="text-sm font-medium text-richblack-100">
+                  6hr 30min
+                </Td> */}
+                <Td className="text-sm font-medium text-richblack-100 mb-5">
                   ₹{course.price}
                 </Td>
-
-                 {/* Action-> edit & delete */}
                 <Td className="text-sm font-medium text-richblack-100 ">
-
-                    {/* edit */}
                   <button
                     disabled={loading}
                     onClick={() => {
-                      navigate(`/dashboard/edit-course/${course._id}`)
+                      navigate(`/dashboard/edit-course/${course._id}`);
                     }}
                     title="Edit"
-                    className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
+                    className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300 mr- mb-"
                   >
                     <FiEdit2 size={20} />
                   </button>
-
-                  {/* delete */}
                   <button
                     disabled={loading}
                     onClick={() => {
                       setConfirmationModal({
                         text1: "Do you want to delete this course?",
-                        text2:"All the data related to this course will be deleted",
+                        text2:
+                          "All the data related to this course will be deleted",
                         btn1Text: !loading ? "Delete" : "Loading...  ",
                         btn2Text: "Cancel",
                         btn1Handler: !loading
@@ -174,18 +146,15 @@ export default function CoursesTable({ courses, setCourses }) {
                   >
                     <RiDeleteBin6Line size={20} />
                   </button>
-
                 </Td>
-
               </Tr>
-
             ))
           )}
         </Tbody>
-
       </Table>
-
       {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
     </>
   )
+
+
 }
