@@ -14,7 +14,7 @@ import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 
 import About from "./pages/About";
-// import Contact from "./pages/Contact";
+import Contact from "./pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute.jsx";
@@ -38,10 +38,10 @@ import Instructor from "./components/core/Dashboard/InstructorDashboard/Instruct
 
 
 
+
 function App() {
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   
   const { user } = useSelector((state) => state.profile)
 
@@ -99,6 +99,7 @@ function App() {
         />
 
           <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
 
    
      <Route  element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }>

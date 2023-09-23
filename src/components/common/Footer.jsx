@@ -62,8 +62,10 @@ const Footer = () => {
       
       {/* copyright */}
       <div class="mt-4  text-base text-center border-t border-brColor pt-5 "> 
-         Copyright © 2023 Upskills | All Rights Reserved.
+         Copyright © 2023 Upskills | Created  By Suraj Singh
       </div>
+
+      <div className="h-12 md:hidden"></div>
    
    </div>
 

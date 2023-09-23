@@ -100,14 +100,14 @@ const About = () => {
       </section>
 
 
-     <div className="h-20"></div>
-      {/* <ReviewSlider /> */}
-      <ReviewSlider />
+        <div className="h-20"></div>
+         {/* <ReviewSlider /> */}
+          <ReviewSlider />
 
-      <div className="h-24"></div>
-      {/* <Footer /> */}
-      <Footer />
-    </div>
+         <div className="h-24"></div>
+          {/* <Footer /> */}
+          <Footer />
+     </div>
   )
 }
 

@@ -28,7 +28,7 @@ function Template({ title, description1, description2, image, formType }) {
             {formType === "signup" ? <SignupForm /> : <LoginForm />}
           </div>
           <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0">
-            <img
+            {/* <img
               src={frameImg}
               alt="Pattern"
               width={558}
@@ -42,7 +42,22 @@ function Template({ title, description1, description2, image, formType }) {
               height={504}
               loading="lazy"
               className="absolute -top-4 right-4 z-10"
-            />
+            /> 
+            */}
+               <img
+              src={image}
+              alt="Students"
+              width={558}
+              height={504}
+              loading="lazy"
+              className="absolute -top-4 right-4 z-10"
+            /> 
+             <div className="flex flex-col gap-6 bg-richblack-800 p-4 lg:p-6">
+     
+                  <img src={image} alt="banner" loading="lazy" className=" shadow-[10px_-5px_45px_-5px] shadow-caribbeangreen-200" />
+
+              </div>
+
           </div>
         </div>
       )}
