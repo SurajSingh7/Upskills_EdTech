@@ -81,8 +81,9 @@ function ReviewSlider() {
             },
            }}
 
-        >
-          {reviews.map((review, i) => {
+        > 
+          {/* Todo -> For All rating in later */}
+          {reviews.slice(0,20).map((review, i) => {
             return (
               <SwiperSlide key={i} > 
 

@@ -28,10 +28,19 @@ exports.createRating = async (req, res) => {
                                                 course:courseId,
                                             });
         if(alreadyReviewed) {
-                    return res.status(403).json({
+
+                    // return res.status(403).json({
+                    //     success:false,
+                    //     message:'Course is already reviewed by the user',
+                    // });
+
+                    return res.json({
                         success:false,
-                        message:'Course is already reviewed by the user',
+                        message:'Reviewed',
                     });
+
+
+
                 }
         //create rating and review
         const ratingReview = await RatingAndReview.create({
@@ -118,9 +127,10 @@ exports.getAverageRating = async (req, res) => {
 //getAllRatingAndReviews
 
 exports.getAllRating = async (req, res) => {
-    try{
+    try{      
+                // todo: sort({rating: "desc"})
             const allReviews = await RatingAndReview.find({})
-                                    .sort({rating: "desc"})
+                                    .sort({rating: "ascending"})
                                     .populate({
                                         path:"user",
                                         select:"firstName lastName email image",
