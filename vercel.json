@@ -1,10 +1,15 @@
 {
     "version": 2,
-    "name": "Upskills_EdTech",
     "builds": [
        { "src": "*.js", "use": "@vercel/node" }
     ],
     "routes": [
        { "src": "/(.*)", "dest": "/" }
-    ]
+    ],
+    "rewrites": [
+      {
+          "source": "/(.*)",
+          "destination": "/"
+      }
+  ]
  }
