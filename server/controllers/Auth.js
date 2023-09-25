@@ -86,6 +86,11 @@ exports.signup = async (req, res) => {
       about: null,
       contactNumber: null,
     })
+
+    // const emailLowerCase=email.toLowerCase();
+
+
+
     const user = await User.create({
       firstName,
       lastName,
@@ -127,9 +132,11 @@ exports.login = async (req, res) => {
         message: `Please Fill up All the Required Fields`,
       })
     }
+     
+    //  const emailLowerCase=email.toLowerCase();
 
     // Find user with provided email
-    const user = await User.findOne({ email }).populate("additionalDetails")
+    const user = await User.findOne({ email}).populate("additionalDetails")
 
     // If user not found with provided email
     if (!user) {
@@ -266,6 +273,7 @@ exports.changePassword = async (req, res) => {
           `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
         )
       )
+
       console.log("Email sent successfully:", emailResponse.response)
     } catch (error) {
       // If there's an error sending the email, log the error and return a 500 (Internal Server Error) error

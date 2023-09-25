@@ -5,6 +5,8 @@ const mailSender = require("../utils/mailSender");
 const {courseEnrollmentEmail} = require("../mail/templates/courseEnrollmentEmail");
 const {paymentSuccessEmail} = require("../mail/templates/paymentSuccessEmail")
 
+const emailAdmin=process.env.AdminEmail;
+
 const { default: mongoose } = require("mongoose");
 const crypto = require("crypto");
 const CourseProgress = require("../models/CourseProgress");
@@ -186,6 +188,17 @@ const enrollStudents = async (courses, userId, res) => {
           `${enrolledStudent.firstName} ${enrolledStudent.lastName}`
         )
       )
+
+      // send to admin also
+      const emailResponseAdmin = await mailSender(
+         emailAdmin,
+        `Successfully Enrolled into ${enrolledCourse.courseName}`,
+        courseEnrollmentEmail(
+          enrolledCourse.courseName,
+          `${enrolledStudent.firstName} ${enrolledStudent.lastName}`
+        )
+      )
+
 
       console.log("Email sent successfully: ", emailResponse.response)
 

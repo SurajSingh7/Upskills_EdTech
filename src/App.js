@@ -34,13 +34,16 @@ import CourseDetails from "./pages/CourseDetails";
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
+import { TermOfUse } from "./pages/TermOfUse";
+import { RefundPolicy } from "./pages/RefundPolicy";
+import { useEffect } from "react";
 
 
 
 
 
 function App() {
-
 
   
   const { user } = useSelector((state) => state.profile)
@@ -100,6 +103,10 @@ function App() {
 
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
+
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/terms-of-use" element={<TermOfUse/>} />
+          <Route path="/refund-and-cancellation-policy" element={<RefundPolicy/>} />
 
    
      <Route  element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }>

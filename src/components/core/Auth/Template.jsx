@@ -54,7 +54,7 @@ function Template({ title, description1, description2, image, formType }) {
             /> 
              <div className="flex flex-col gap-6 bg-richblack-800 p-4 lg:p-6">
      
-                  <img src={image} alt="banner" loading="lazy" className=" shadow-[10px_-5px_45px_-5px] shadow-caribbeangreen-200" />
+                  <img src={image} alt="banner" loading="lazy" className=" shadow-[10px_-5px_45px_-5px] shadow-[#0AFFFF]" />
 
               </div>
 
